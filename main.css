@@ -335,8 +335,8 @@
   }
   
   .profile-img-big {
-    width: 180px;
-    height: 180px;
+    width: 175x;
+    height: 175px;
     border-radius: 50%;
     -o-object-fit: cover;
        object-fit: cover;
@@ -447,6 +447,11 @@
   @media screen and (max-width: 510px) {
     .content-wrapper {
       padding: 20px;
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+    .content-wrapper::-webkit-scrollbar {
+      display: none;
     }
   }
   .content-wrapper-header {
@@ -815,17 +820,19 @@
   
   .apps-card {
     display: flex;
-    align-items: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
     width: calc(100% + 20px);
   }
   .app-card {
     display: flex;
+    align-self: flex-start;
+    justify-content: flex-start;
     flex-direction: column;
     width: calc(33.3% - 20px);
     font-size: 16px;
     background-color: var(--content-bg);
-    border-radius: 14px;
+    border-radius: 12px;
     border: 1px solid var(--theme-bg-color);
     padding: 20px;
     cursor: pointer;
@@ -855,6 +862,11 @@
     margin-top: 20px;
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 20px;
+  }
+  .app-card__seperator {
+    border-bottom: 1px solid var(--border-color);
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
   .app-card-buttons {
     display: flex;
@@ -1037,10 +1049,6 @@
   cursor: pointer;
 }
 
-.tab-bar-button {
-  background-color: transparent;
-  border-style: none;
-}
 .tab-bar-button.is-active svg {
   fill: #5ac950bd;
 }
