@@ -1032,7 +1032,7 @@
 }
 @media screen and (max-width: 574px) {
   .tab-bar {
-  display: inline-block;;
+    display: flex;
   }
 }
 .tab-bar ul {
@@ -1075,23 +1075,49 @@
   }
 }
 
-
-.chat-area-footer {
+.chat-area {
+  left: 0px; 
+  width: 100%;
+  border: 0px solid;
+}
+.chat-area-content {
   display: flex;
-  align-self: flex-end;
+  flex-direction: column; 
+  justify-content: flex-start; 
+  width: calc(100vw-480);
+  padding-bottom: 15px;
+  height: 100%;
+  overflow: auto;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.chat-area-content::-webkit-scrollbar {
+  display: none;
+}
+.chat-area-footer {
+  position: fixed;
+  display: flex;
+  justify-self: flex-end;
   border-radius: 12px;
   border: 0px solid var(--border-color);
-  width: 100%;
-  height: 44px;
-  padding: 10px 20px;
+  height: 48px;
+  padding: 0px 20px;
   align-items: center;
   background-color: var(--theme-bg-color);
-  position: sticky;
-  bottom: 0;
+  bottom: 25px;
   left: 0;
-  margin-bottom: 25px;
+  right: 0;
+  width: calc(100vw-480);
+  margin-left: 255px;
+  margin-right: 255px;
 }
-
+@media screen and (max-width: 945px) {
+  .chat-area-footer {
+    width: calc(100vw-30);
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}
 .chat-area-footer svg {
   color: var(--settings-icon-color);
   width: 20px;
