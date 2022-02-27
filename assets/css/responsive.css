@@ -47,19 +47,13 @@
     }
   }
   
-  @media screen and (max-width: 700px) {
-    .status {
-      display: none;
-    }
-  }
-  
-  @media screen and (max-width: 610px) {
+  @media screen and (max-width: 540px) {
     .header-menu a:not(.main-header-link) {
       display: none;
     }
-  }
-  
-  @media screen and (max-width: 540px) {
+    .status {
+      display: none;
+    }
     .app-card {
       width: 100%;
       margin-top: 20px;
@@ -113,3 +107,11 @@
     }
   }
   
+  @media screen and (max-width: 420px) {
+    .content-wrapper-header {
+      padding: 10px;
+    }
+    .content-wrapper {
+      padding: 10px;
+    }
+  }
