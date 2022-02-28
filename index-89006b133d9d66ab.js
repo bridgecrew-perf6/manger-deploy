@@ -284,7 +284,7 @@ async function load(module, imports) {
 
 async function init(input) {
     if (typeof input === 'undefined') {
-        input = new URL('index-1330f0de5dfc9d9c_bg.wasm', import.meta.url);
+        input = new URL('index-89006b133d9d66ab_bg.wasm', import.meta.url);
     }
     const imports = {};
     imports.wbg = {};
@@ -614,16 +614,16 @@ async function init(input) {
     imports.wbg.__wbindgen_throw = function(arg0, arg1) {
         throw new Error(getStringFromWasm0(arg0, arg1));
     };
-    imports.wbg.__wbindgen_closure_wrapper177 = function(arg0, arg1, arg2) {
-        var ret = makeMutClosure(arg0, arg1, 47, __wbg_adapter_18);
+    imports.wbg.__wbindgen_closure_wrapper189 = function(arg0, arg1, arg2) {
+        var ret = makeMutClosure(arg0, arg1, 49, __wbg_adapter_18);
         return addHeapObject(ret);
     };
-    imports.wbg.__wbindgen_closure_wrapper354 = function(arg0, arg1, arg2) {
-        var ret = makeMutClosure(arg0, arg1, 180, __wbg_adapter_21);
+    imports.wbg.__wbindgen_closure_wrapper362 = function(arg0, arg1, arg2) {
+        var ret = makeMutClosure(arg0, arg1, 183, __wbg_adapter_21);
         return addHeapObject(ret);
     };
-    imports.wbg.__wbindgen_closure_wrapper387 = function(arg0, arg1, arg2) {
-        var ret = makeClosure(arg0, arg1, 188, __wbg_adapter_24);
+    imports.wbg.__wbindgen_closure_wrapper395 = function(arg0, arg1, arg2) {
+        var ret = makeClosure(arg0, arg1, 191, __wbg_adapter_24);
         return addHeapObject(ret);
     };
 
