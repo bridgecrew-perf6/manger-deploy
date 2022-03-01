@@ -18,7 +18,11 @@
     margin-right: 0px;
     margin-top: 12px;
     margin-bottom: 12px;
-    height: 240px;
+    height: 268px;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: y mandatory;
+    scroll-snap-align: center;
+    scroll-behavior: smooth;
 }
 .toc-wrapper::-webkit-scrollbar {
     display: none;
@@ -38,12 +42,17 @@
     white-space: nowrap;
     justify-content: center;
     align-items: center;
+    scroll-snap-align: center;
 }
 
-.toc-menu a {
+.toc-menu span {
+    flex: 0 1 100%;
+    scroll-snap-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-decoration: none;
     color: var(--theme-color);
-    align-items: center;
     font-weight: 400;
     padding: 8px 8px;
     font-size: 14px;
@@ -51,8 +60,13 @@
     transition: 0.1s;
 }
 
-.toc-menu a:hover {
+.toc-menu span:hover {
     background-color: var(--hover-menu-bg);
+}
+
+.toc-menu-selected {
+    border-left: 1px solid red;
+    border-right: 1px solid red;
 }
 
 .toc-menu svg {
