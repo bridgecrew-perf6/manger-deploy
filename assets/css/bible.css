@@ -23,6 +23,8 @@
     background-color: transparent;
 }
 .bible-verse-content-wrapper {
+    display: flex;
+    flex-direction: column;
     background-color: transparent;
     position: relative;
     justify-content: center;
