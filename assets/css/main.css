@@ -342,12 +342,6 @@ body.light-mode .video-bg:before {
   flex-shrink: 0;
 }
 
-.products {
-  display: flex;
-  align-items: center;
-  width: 150px;
-}
-
 .status {
   margin-left: auto;
   width: 140px;
