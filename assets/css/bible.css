@@ -48,11 +48,10 @@
     position: relative;
     justify-content: center;
     align-items: center;
-    overflow-x: scroll;
+    overflow: auto;
     width: calc(100%-336px);
     height: 100%;
     scroll-behavior: smooth;
-    overscroll-behavior: contain;
     color: var(--theme-text-color);
     transition: 0s;
     column-count:2;
@@ -61,7 +60,6 @@
     column-gap: 48px;
     padding-top: 12px;
     padding-bottom: 12px;
-   
 }
 .bible-verse-content::-webkit-scrollbar {
     display: none;
