@@ -48,10 +48,11 @@
     position: relative;
     justify-content: center;
     align-items: center;
-    overflow: auto;
+    overflow-x: scroll;
     width: calc(100%-336px);
     height: 100%;
     scroll-behavior: smooth;
+    overscroll-behavior: contain;
     color: var(--theme-text-color);
     transition: 0s;
     column-count:2;
@@ -60,6 +61,10 @@
     column-gap: 48px;
     padding-top: 12px;
     padding-bottom: 12px;
+   
+}
+.bible-verse-content::-webkit-scrollbar {
+    display: none;
 }
 
 .toc-wrapper {
@@ -73,6 +78,7 @@
     scroll-snap-type: y mandatory;
     scroll-snap-align: center;
     scroll-behavior: smooth;
+    overscroll-behavior: auto;
     -webkit-user-select : none;
     user-select: none;
     touch-action: pan-y;
