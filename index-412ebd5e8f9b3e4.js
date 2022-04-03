@@ -21,6 +21,22 @@ function takeObject(idx) {
     return ret;
 }
 
+let cachedTextDecoder = new TextDecoder('utf-8', { ignoreBOM: true, fatal: true });
+
+cachedTextDecoder.decode();
+
+let cachegetUint8Memory0 = null;
+function getUint8Memory0() {
+    if (cachegetUint8Memory0 === null || cachegetUint8Memory0.buffer !== wasm.memory.buffer) {
+        cachegetUint8Memory0 = new Uint8Array(wasm.memory.buffer);
+    }
+    return cachegetUint8Memory0;
+}
+
+function getStringFromWasm0(ptr, len) {
+    return cachedTextDecoder.decode(getUint8Memory0().subarray(ptr, ptr + len));
+}
+
 function addHeapObject(obj) {
     if (heap_next === heap.length) heap.push(heap.length + 1);
     const idx = heap_next;
@@ -31,14 +47,6 @@ function addHeapObject(obj) {
 }
 
 let WASM_VECTOR_LEN = 0;
-
-let cachegetUint8Memory0 = null;
-function getUint8Memory0() {
-    if (cachegetUint8Memory0 === null || cachegetUint8Memory0.buffer !== wasm.memory.buffer) {
-        cachegetUint8Memory0 = new Uint8Array(wasm.memory.buffer);
-    }
-    return cachegetUint8Memory0;
-}
 
 let cachedTextEncoder = new TextEncoder('utf-8');
 
@@ -99,14 +107,6 @@ function getInt32Memory0() {
         cachegetInt32Memory0 = new Int32Array(wasm.memory.buffer);
     }
     return cachegetInt32Memory0;
-}
-
-let cachedTextDecoder = new TextDecoder('utf-8', { ignoreBOM: true, fatal: true });
-
-cachedTextDecoder.decode();
-
-function getStringFromWasm0(ptr, len) {
-    return cachedTextDecoder.decode(getUint8Memory0().subarray(ptr, ptr + len));
 }
 
 function isLikeNone(x) {
@@ -277,12 +277,16 @@ async function load(module, imports) {
 
 async function init(input) {
     if (typeof input === 'undefined') {
-        input = new URL('index-143d2e742e619cb0_bg.wasm', import.meta.url);
+        input = new URL('index-412ebd5e8f9b3e4_bg.wasm', import.meta.url);
     }
     const imports = {};
     imports.wbg = {};
     imports.wbg.__wbindgen_object_drop_ref = function(arg0) {
         takeObject(arg0);
+    };
+    imports.wbg.__wbindgen_string_new = function(arg0, arg1) {
+        var ret = getStringFromWasm0(arg0, arg1);
+        return addHeapObject(ret);
     };
     imports.wbg.__wbindgen_object_clone_ref = function(arg0) {
         var ret = getObject(arg0);
@@ -299,10 +303,6 @@ async function init(input) {
     imports.wbg.__wbindgen_as_number = function(arg0) {
         var ret = +getObject(arg0);
         return ret;
-    };
-    imports.wbg.__wbindgen_string_new = function(arg0, arg1) {
-        var ret = getStringFromWasm0(arg0, arg1);
-        return addHeapObject(ret);
     };
     imports.wbg.__wbindgen_is_undefined = function(arg0) {
         var ret = getObject(arg0) === undefined;
@@ -961,20 +961,20 @@ imports.wbg.__wbindgen_memory = function() {
     var ret = wasm.memory;
     return addHeapObject(ret);
 };
-imports.wbg.__wbindgen_closure_wrapper1545 = function(arg0, arg1, arg2) {
-    var ret = makeMutClosure(arg0, arg1, 637, __wbg_adapter_36);
+imports.wbg.__wbindgen_closure_wrapper1546 = function(arg0, arg1, arg2) {
+    var ret = makeMutClosure(arg0, arg1, 632, __wbg_adapter_36);
     return addHeapObject(ret);
 };
-imports.wbg.__wbindgen_closure_wrapper1788 = function(arg0, arg1, arg2) {
-    var ret = makeMutClosure(arg0, arg1, 689, __wbg_adapter_39);
+imports.wbg.__wbindgen_closure_wrapper1789 = function(arg0, arg1, arg2) {
+    var ret = makeMutClosure(arg0, arg1, 684, __wbg_adapter_39);
     return addHeapObject(ret);
 };
-imports.wbg.__wbindgen_closure_wrapper1812 = function(arg0, arg1, arg2) {
-    var ret = makeMutClosure(arg0, arg1, 694, __wbg_adapter_42);
+imports.wbg.__wbindgen_closure_wrapper1813 = function(arg0, arg1, arg2) {
+    var ret = makeMutClosure(arg0, arg1, 689, __wbg_adapter_42);
     return addHeapObject(ret);
 };
-imports.wbg.__wbindgen_closure_wrapper4526 = function(arg0, arg1, arg2) {
-    var ret = makeMutClosure(arg0, arg1, 749, __wbg_adapter_45);
+imports.wbg.__wbindgen_closure_wrapper4527 = function(arg0, arg1, arg2) {
+    var ret = makeMutClosure(arg0, arg1, 744, __wbg_adapter_45);
     return addHeapObject(ret);
 };
 
